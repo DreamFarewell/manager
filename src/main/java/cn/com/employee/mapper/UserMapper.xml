@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.employee.mapper.UserMapper">
+	<!-- 获得用户信息 -->
+	<select id="getUser" resultType="cn.com.employee.po.UserCustom">
+		SELECT * FROM user WHERE user=#{user}
+	</select>
+	<!-- 用于判断用户是否存在 -->
+	<select id="judgeUser" resultType="java.lang.Integer">
+		SELECT count(*) FROM user WHERE user=#{user} and userType=#{userType}
+	</select>
+	<!-- 获得用户列表 -->
+	<select id="getUserList" resultType="cn.com.employee.po.UserCustom">
+		SELECT * FROM user WHERE userType='ordinary'
+	</select>
+	<!-- 根据主键查询用户 -->
+	<select id="findUserById" resultType="cn.com.employee.po.UserCustom">
+		SELECT * From user WHERE id=#{id}
+	</select>
+	<!-- 创建新用户 -->
+	<insert id="insertUser">
+		INSERT INTO user (user,password,userType) VALUES (#{userCustom.user},#{userCustom.password},#{userCustom.userType})
+	</insert>
+	<!-- 修改用户信息 -->
+	<update id="updateUser">
+		UPDATE user SET 
+		<trim suffixOverrides=",">
+			<if test="userCustom.user!=null and userCustom.user!=''">
+				user=#{userCustom.user},
+			</if>
+			<if test="userCustom.password!=null and userCustom.password!=''">
+				password=#{userCustom.password},
+			</if>
+			<if test="userCustom.userType!=null and userCustom.userType!=''">
+				userType=#{userCustom.userType},
+			</if>
+		</trim> WHERE id=#{id}
+	</update>
+	<!-- 删除用户 -->
+	<delete id="deleteUser">
+		DELETE FROM user WHERE user=#{user} and userType=#{userType}
+	</delete>
+</mapper>

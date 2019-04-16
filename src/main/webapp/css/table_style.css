@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.table_style {
+	background-color: #9dfdfa;
+	border-right: 1px solid #ffffff;
+	border-bottom: 1px solid #ffffff;
+	text-align: center;
+}
+.tr_h_style {
+	padding-bottom: 0px;
+	border-bottom: 1px;
+	background-image: url("/pic/tr.png");
+}
+
+.tr_d_style {
+	border-left: 1px solid #ffffff;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px;
+	background-image: url("/pic/tr.png");
+}
+
+.td_start_style {
+	border-top: 1px solid #ffffff;
+}
+
+.td_style {
+	border-left: 1px solid #ffffff;
+	border-top: 1px solid #ffffff;
+}
+.td_style_delete {
+	border-left: 0px;
+	border-top: 1px solid #ffffff;
+}
+
+.page_td_style_left {
+	padding-right: 100px;
+	font: lighter 11px Arial;
+}
+.page_td_style_right{
+	font: bold 11px Arial;
+	padding-left: 300px;
+	text-decoration: none;
+	color:#0080c0;
+}
+.page_font{
+	font: bold 11px Arial;
+}
